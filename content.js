@@ -16,7 +16,11 @@ function hideAds() {
 
 // 日志逻辑
 function log() {
-    console.info("%c 🎬 哔哩哔哩隐藏广告插件执行一次 %c by 王香龙 ", "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #FFFFFF; background: #FF6699; font-weight: bold;", "padding: 2px 6px; border-radius: 0 3px 3px 0; color: #FFFFFF; background: #FF9999; font-weight: bold;");
+    console.info(
+        "%c 🎬 哔哩哔哩隐藏广告插件执行一次 %c by 王香龙 ",
+        "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #FFFFFF; background: #FF6699; font-weight: bold;",
+        "padding: 2px 6px; border-radius: 0 3px 3px 0; color: #FFFFFF; background: #FF9999; font-weight: bold;"
+    );
 }
 
 // 统一执行
