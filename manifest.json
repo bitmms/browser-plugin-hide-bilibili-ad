@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "哔哩哔哩隐藏广告",
+  "version": "1.0",
+  "description": "自动隐藏加入标签的哔哩哔哩广告元素",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.bilibili.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
