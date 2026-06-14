@@ -7,6 +7,11 @@ function hideAds() {
         '.ad-floor-exp',
         '.left-entry .v-popover-wrap:nth-last-child(-n+2)',
         '.favlist-aside .vui_collapse .fav-collapse:nth-last-child(1)',
+        '.favlist-aside .vui_collapse .fav-collapse:nth-last-child(3)',
+        '.favlist-aside .vui_collapse .fav-collapse:nth-last-child(4)',
+        '.space-dynamic .space-dynamic__right',
+        'main.space-main div.space-home div.aside',
+        '.fans-medal'
     ]
     const adList = document.querySelectorAll(selector.join(', '));
     adList.forEach(el => {
