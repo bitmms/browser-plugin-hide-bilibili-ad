@@ -1,3 +1,7 @@
+// ==========================================================================================
+// ==========================================================================================
+// ========================================== 需要根据变化动态执行的部分
+
 // 隐藏广告
 function hideAds() {
     let selector = [
@@ -19,23 +23,7 @@ function hideAds() {
     });
 }
 
-// 日志逻辑
-function log() {
-    console.info(
-        "%c 🎬 哔哩哔哩隐藏广告插件执行一次 %c by 王香龙 ",
-        "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #FFFFFF; background: #FF6699; font-weight: bold;",
-        "padding: 2px 6px; border-radius: 0 3px 3px 0; color: #FFFFFF; background: #FF9999; font-weight: bold;"
-    );
-}
-
-// 统一执行
-function runAll() {
-    hideAds();
-    log();
-}
-
-// 初始执行
-runAll();
+hideAds();
 
 // 播放器容器选择器（B站视频主体容器，按需补充）
 const playerSelectors = [
@@ -63,7 +51,7 @@ const observer = new MutationObserver((mutations) => {
 
         // 非播放器区域的变动，才执行逻辑
         if (!isPlayerArea) {
-            runAll();
+            hideAds();
             break;
         }
     }
@@ -71,3 +59,25 @@ const observer = new MutationObserver((mutations) => {
 observer.observe(document.body, {
     childList: true, subtree: true
 });
+
+// ==========================================================================================
+// ==========================================================================================
+// ========================================== 需要延迟执行的部分
+
+// 添加稍后观看
+function addMarkWatchList() {
+    let watchLaterLink = document.querySelector('.nav-bar .nav-bar__main .nav-bar__main-left .nav-tab a:nth-last-of-type(1)');
+    const cloneLink = watchLaterLink.cloneNode(true);
+    {
+        cloneLink.target = '_blank';
+        cloneLink.href = 'https://www.bilibili.com/watchlater/list';
+        cloneLink.querySelector('span').innerHTML = '稍后观看';
+        cloneLink.querySelector('i').classList.remove('sic-BDC-nut_setting_line')
+        cloneLink.querySelector('i').classList.add('sic-BDC-video_archive_line')
+    }
+    watchLaterLink.before(cloneLink);
+}
+
+setTimeout(() => {
+    addMarkWatchList();
+}, 500);
