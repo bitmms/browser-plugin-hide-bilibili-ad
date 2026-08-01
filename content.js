@@ -15,7 +15,9 @@ function hideAds() {
         '.favlist-aside .vui_collapse .fav-collapse:nth-last-child(4)',
         '.space-dynamic .space-dynamic__right',
         'main.space-main div.space-home div.aside',
-        '.fans-medal'
+        '.fans-medal',
+        '.right-entry li:nth-last-child(2)',
+        '.right-entry li:nth-of-type(3)',
     ]
     const adList = document.querySelectorAll(selector.join(', '));
     adList.forEach(el => {
